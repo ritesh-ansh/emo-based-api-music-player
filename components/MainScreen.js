@@ -28,7 +28,7 @@ function MainScreen() {
           </p>
           <button className="bg-[#35858B] ml-[15%]  w-[45%] flex justify-center items-center align-middle rounded-full p-3 text-white  ">
             <Link href="/">
-              <p className="text-xl  ">Detect Your Mood 😉</p>
+              <p className="text-3xl  ">Detect Your Mood 😉</p>
             </Link>
           </button>
         </div>
