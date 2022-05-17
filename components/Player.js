@@ -14,7 +14,7 @@ function Player() {
       });
     }
   }, [session]);
-  // console.log(playlist);
+  console.log(playlist);
   return (
     <>
       <div>
