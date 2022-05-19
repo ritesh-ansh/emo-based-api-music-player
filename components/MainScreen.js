@@ -6,10 +6,7 @@ import UserInfo from "./UserInfo";
 
 function MainScreen({ providers }) {
   const { data: session, status } = useSession();
-  console.log(session);
-  if (session) {
-    console.log(session.user.name);
-  }
+
   return (
     <div>
       <div className="flex justify-end items-center mt-4 p-2 mr-[2vw] ">
