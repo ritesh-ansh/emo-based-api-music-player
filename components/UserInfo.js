@@ -6,7 +6,7 @@ function UserInfo() {
   const { data: session, status } = useSession();
 
   return (
-    <div className=" rounded-full p-2  bg-slate-600 flex justify-center items-center space-x-3">
+    <div className=" rounded-full p-2  bg-gray-300 flex justify-center items-center space-x-3">
       <div className="w-[8vh] h-[8vh] rounded-full overflow-hidden ">
         <Image
           src={session.user.image}
@@ -16,7 +16,7 @@ function UserInfo() {
         />
       </div>
       <div>
-        <p className="text-lg text-white font-roboto">{session.user.name}</p>
+        <p className="text-xl text-[#8842ae] font-roboto">{session.user.name}</p>
       </div>
       <button
         onClick={() => signOut()}
@@ -25,7 +25,7 @@ function UserInfo() {
           (session ? "" : " hidden ") + "   rounded-full px-4 py-2 bg-white "
         }
       >
-        <p className="text-gray-600">Log Out</p>
+        <p className="text-gray-600 text-xl ">Log Out</p>
       </button>
     </div>
   );

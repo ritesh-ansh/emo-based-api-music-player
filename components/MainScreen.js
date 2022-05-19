@@ -29,7 +29,7 @@ function MainScreen({ providers }) {
             Play songs that fit your <span className="ml-[30%]">mood</span>
           </p>
           <Link href="/musicplayer">
-            <button className="bg-[#35858B] ml-[15%]  w-[45%] flex justify-center items-center align-middle rounded-full p-3 text-white  ">
+            <button className="bg-gray-300 ml-[15%]  w-[45%] flex justify-center items-center align-middle rounded-full p-3 text-gray-600  ">
               <p className="text-3xl  ">Detect Your Mood 😉</p>
             </button>
           </Link>
