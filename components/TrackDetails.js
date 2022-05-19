@@ -6,7 +6,7 @@ export default function TrackDetails({ track, chooseTrack }) {
     chooseTrack(track);
   }
   return (
-    <div onClick={handleClick} className=" flex space-x-16  ">
+    <div onClick={handleClick} className=" flex space-x-10  ">
       <div className=" cursor-pointer w-[5vw] h-[5vw] m-2 ml-5 ">
         <Image
           src={track.albumUrl}
@@ -15,10 +15,12 @@ export default function TrackDetails({ track, chooseTrack }) {
           layout={"responsive"}
         />
       </div>
-      <div className=" ">
-        <p className="text-gray-200   cursor-pointer">{track.title}</p>
+      <div className=" flex flex-col justify-center ">
+        <p className="text-white  font-montserrat font-semibold cursor-pointer">
+          {track.title}
+        </p>
 
-        <p className="text-gray-500 ">{track.artist}</p>
+        <p className="text-gray-300 font-montserrat ">{track.artist}</p>
       </div>
     </div>
   );
