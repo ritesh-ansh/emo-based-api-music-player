@@ -6,7 +6,10 @@ export default function MusicPlayer({ accessToken, trackUri }) {
     <SpotifyWebPlayer
       token={accessToken}
       showSaveIcon
+      play={true}
+      magnifySliderOnHover={true}
       uris={trackUri ? [trackUri] : []}
+      name="MusicPlayer"
     />
   );
 }
