@@ -1,7 +1,7 @@
 import { signIn, useSession } from "next-auth/react";
 import React from "react";
 import { useEffect } from "react";
-import spotifyApi from "../lib/spotify";
+import SpotifyWebApi from "spotify-web-api-node";
 
 const spotifyApi = new SpotifyWebApi({
   clientId: process.env.NEXT_PUBLIC_CLIENT_ID,
@@ -10,7 +10,7 @@ const spotifyApi = new SpotifyWebApi({
 
 function useSpotify() {
   const { data: session, status } = useSession();
-  console.log(session);
+  // console.log(session);
   useEffect(() => {
     if (session) {
       if (session.error === "RefreshAccessTokenError") {
