@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import useSpotify from "../hooks/useSpotify";
 import TrackDetails from "./TrackDetails";
 import SpotifyWebPlayer from "react-spotify-web-playback";
+import MusicPlayer from "./MusicPlayer";
 
 function Player() {
   // const spotifyApi = useSpotifyApi();
@@ -11,6 +12,11 @@ function Player() {
   const [songList, setSongList] = useState([]);
   const { data: session, status } = useSession();
   const [playing, setPlaying] = useState();
+
+  function chooseTrack(track) {
+    setPlaying(track);
+    console.log(track);
+  }
 
   // const getSongList = async () => {
   //   const res = await axios
@@ -63,8 +69,8 @@ function Player() {
         })
       );
     });
-    console.log(songList);
   }, [session, spotifyApi]);
+  // useEffect(() => {});
 
   // console.log(songList);
   // const chooseSong = (song) => {
@@ -72,40 +78,22 @@ function Player() {
   //   console.log("playing set", song);
   // };
 
-  const handleSongClick = (track) => {
-    setPlaying(track.uri);
-    console.log("playing set", track);
-  };
-
-  spotifyApi.getMyCurrentPlaybackState().then(
-    function (data) {
-      // Output items
-      if (data.body && data.body.is_playing) {
-        console.log("User is currently playing something!");
-      } else {
-        console.log("User is not playing anything, or doing so in private.");
-      }
-    },
-    function (err) {
-      console.log("Something went wrong!", err);
-    }
-  );
   return (
     <>
       <div className="flex flex-col ml-[30vw] ">
         {songList.map((song) => {
           return (
             <div key={song.uri}>
-              <TrackDetails chooseSong={handleSongClick} song={song} />
+              <TrackDetails track={song} chooseTrack={chooseTrack} />
+              {/* <TrackDetails /> */}
             </div>
           );
         })}
       </div>
       <div className="sticky bottom-0 ">
-        <SpotifyWebPlayer
-          autoplay={true}
-          token={spotifyApi.getAccessToken()}
-          uri={[playing ? playing?.uri : []]}
+        <MusicPlayer
+          accessToken={spotifyApi.getAccessToken()}
+          trackUri={playing?.uri}
         />
       </div>
     </>
